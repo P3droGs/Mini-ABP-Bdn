@@ -9,7 +9,7 @@ const customers = Array.from({ length: 5 }, () => ObjectId())
 const leads = Array.from({ length: 10 }, () => ObjectId())
 
 // ===============================
-// SERS
+// USERS
 // ===============================
 db.users.insertMany([
   { _id: users[0], name: "Admin", role: "administrador", active: true },
@@ -56,18 +56,19 @@ db.leads.insertMany([
 ])
 
 // ===============================
-// NEGOTIATIONS 
-//
+// NEGOTIATIONS (AGORA COM IMPORTANCE)
 // ===============================
 db.negotiations.insertMany([
   {
     leadId: leads[0],
+    importance: "quente",
     status: "aberta",
     currentStage: "contato_inicial",
     history: [{ stage: "contato_inicial", status: "aberta", changedAt: new Date(), changedBy: users[2] }]
   },
   {
     leadId: leads[1],
+    importance: "quente",
     status: "encerrada",
     currentStage: "fechamento",
     history: [
@@ -77,48 +78,56 @@ db.negotiations.insertMany([
   },
   {
     leadId: leads[2],
+    importance: "morno",
     status: "aberta",
     currentStage: "proposta",
     history: [{ stage: "proposta", status: "aberta", changedAt: new Date(), changedBy: users[4] }]
   },
   {
     leadId: leads[3],
+    importance: "frio",
     status: "aberta",
     currentStage: "negociacao",
     history: [{ stage: "negociacao", status: "aberta", changedAt: new Date(), changedBy: users[2] }]
   },
   {
     leadId: leads[4],
+    importance: "quente",
     status: "encerrada",
     currentStage: "fechamento",
     history: [{ stage: "fechamento", status: "encerrada", changedAt: new Date(), changedBy: users[3] }]
   },
   {
     leadId: leads[5],
+    importance: "morno",
     status: "aberta",
     currentStage: "contato_inicial",
     history: [{ stage: "contato_inicial", status: "aberta", changedAt: new Date(), changedBy: users[4] }]
   },
   {
     leadId: leads[6],
+    importance: "morno",
     status: "aberta",
     currentStage: "proposta",
     history: [{ stage: "proposta", status: "aberta", changedAt: new Date(), changedBy: users[2] }]
   },
   {
     leadId: leads[7],
+    importance: "quente",
     status: "encerrada",
     currentStage: "fechamento",
     history: [{ stage: "fechamento", status: "encerrada", changedAt: new Date(), changedBy: users[3] }]
   },
   {
     leadId: leads[8],
+    importance: "frio",
     status: "aberta",
     currentStage: "negociacao",
     history: [{ stage: "negociacao", status: "aberta", changedAt: new Date(), changedBy: users[4] }]
   },
   {
     leadId: leads[9],
+    importance: "frio",
     status: "aberta",
     currentStage: "contato_inicial",
     history: [{ stage: "contato_inicial", status: "aberta", changedAt: new Date(), changedBy: users[2] }]
@@ -126,7 +135,7 @@ db.negotiations.insertMany([
 ])
 
 // ===============================
-//  LOGS
+// LOGS
 // ===============================
 db.logs.insertMany([
   { userId: users[0], action: "login", entity: "User", createdAt: new Date() },
