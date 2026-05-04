@@ -7,7 +7,6 @@ Projeto desenvolvido para a disciplina de Banco de Dados Não Relacional, com o 
 ## Tecnologias Utilizadas
 
 - MongoDB (mongosh)  
-- JavaScript (scripts de banco)  
 - Modelagem NoSQL  
 
 ---
